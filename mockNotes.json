@@ -1,0 +1,25 @@
+{ "notes": [{
+  "noteID": 3434324,
+  "title": "Learn Angular",
+  "bodyText": "HTML, CSS, Directives, Components"
+},{
+  "noteID": 34324325,
+  "title": "Shopping List",
+  "bodyText": "Eggs, Bread, Detergent"
+},{
+  "noteID": 3543464536,
+  "title": "CSS Flex",
+  "bodyText": "CSS Flex is a grid-like UI utility to help manage UI components"
+},{
+  "noteID": 34543859843,
+  "title": "Collaborate",
+  "bodyText": "Programming is about learning and teaching, don't hesitate to ask for help"
+},{
+  "noteID": 3824932489,
+  "title": "Bootstrap",
+  "bodyText": "Bootstrap is a CSS framework that makes styling your components very easy with simple class names"
+},{
+  "noteID": 988589438590,
+  "title": "Documentation",
+  "bodyText": "Incredibly useful"
+}]}

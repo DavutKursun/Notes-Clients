@@ -1,0 +1,8 @@
+.imageMargin{
+  margin: 10px;
+}
+.tabBarDisplay{
+  display: flex;
+  align-items: center;
+}
+

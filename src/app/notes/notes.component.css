@@ -1,0 +1,11 @@
+.card-padding{
+  padding: 20px;
+}
+.card-margin{
+  margin: 30px;
+}
+li{
+  list-style: none;
+  display: inline-block;
+}
+

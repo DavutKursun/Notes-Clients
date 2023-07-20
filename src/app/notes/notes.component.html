@@ -1,0 +1,36 @@
+
+<ul>
+  <li  *ngFor="let note of notes ; index as i" >
+      <div *ngIf="note.isChangeable === undefined || !note.isChangeable "  (click)= "toEnable(i)" >
+        <div class="card m-4"  style="width: 18rem;">
+          <div class="card-body" >
+            <h5 class="card-title">{{note.title}}</h5>
+            <p class="card-text">{{note.bodyText}} </p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="note.isChangeable">
+        <div class="card m-4"  style="width: 18rem;" >
+          <div class="card-body" >
+            <input type="text" class="form-control" [(ngModel)]="note.title"  aria-describedby="basic-addon2">
+            <p></p>
+            <textarea class="form-control" id="bodyText" [(ngModel)]="note.bodyText"  rows="3"></textarea>
+            <p></p>
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-primary" (click)= "toDisable(i)">SAVE</button>
+            </div>
+            <p></p>
+            <div class="d-grid gap-2">
+              <button class="btn btn-danger" type="button" (click)="deleteNote(note.noteID)">DELETE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </li>
+</ul>
+
+
+
+
+
+

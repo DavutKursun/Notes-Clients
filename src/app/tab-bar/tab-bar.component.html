@@ -1,0 +1,22 @@
+
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem class="tabBarDisplay md-3">
+      <img class="imageMargin " src="../../assets/igire4thvjgakj5njztq.webp" width="50" height="50" >
+      <span class="m-3 ">EnglishCentralNotes</span>
+      <button type="button" class="btn btn-primary m-4 " (click)="openModal(content)">ADD</button>
+  </li>
+</ul>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <input type="text" #title (input)="title" class="form-control"   aria-describedby="basic-addon2" >
+
+  </div>
+  <div class="modal-body">
+    <textarea class="form-control" #body id="bodyText" (input)="body" rows="3"></textarea>
+  </div>
+  <div class="d-grid gap-3 p-3" >
+    <button type="button" class="btn btn-primary"  (click)="c( onSubmit(title.value,body.value) )">SAVE</button>
+  </div>
+</ng-template>
+
