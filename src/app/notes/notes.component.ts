@@ -40,6 +40,7 @@ export class NotesComponent implements OnInit{
 
 
  deleteNote(id: number) {
+    this.notesService
     localStorage.removeItem(id.toString());
     window.location.reload();
   }

@@ -30,4 +30,8 @@ export class TabBarComponent {
     }
     window.location.reload();
   }
+
+  deleteAll(){
+
+  }
 }
