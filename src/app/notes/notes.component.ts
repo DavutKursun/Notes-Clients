@@ -30,6 +30,7 @@ export class NotesComponent implements OnInit{
     for (let i = 0; i < localStorage.length; i++) {
         this.notes.push(JSON.parse(localStorage.getItem(localStorage.key(i) || ' ' ) || ' '));
     }
+
     this.notes.sort(function (a,b) {
       if (a.noteID < b.noteID)return -1;
       if(a.noteID> b.noteID)return 1;

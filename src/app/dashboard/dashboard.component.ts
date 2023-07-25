@@ -11,10 +11,6 @@ export class DashboardComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  getNotes(): void{
-
-  }
-
 
 
 }
