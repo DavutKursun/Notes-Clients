@@ -10,7 +10,6 @@ import {NotesService} from "../notes.service";
 export class TabBarComponent {
 
 
-
   constructor(private modalService: NgbModal, private notesService: NotesService) {
   }
   openModal(content: any){
