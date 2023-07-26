@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Note} from "./note";
 import {Observable} from "rxjs";
 
@@ -21,7 +21,11 @@ export class NotesService {
   }
 
   public addNote(note: Note): Observable<Note>{
-    return this.http.post<Note>(`${this.ROOT_URL}/save`, note)
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = { headers: headers };
+    return this.http.post<Note>(`${this.ROOT_URL}/save`, note, options)
   }
 
   public updateNote(note: Note): Observable<Note[]>{

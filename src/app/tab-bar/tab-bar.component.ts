@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Note} from "../note";
+import {NotesService} from "../notes.service";
 @Component({
   selector: 'app-tab-bar',
   templateUrl: './tab-bar.component.html',
@@ -10,7 +11,7 @@ export class TabBarComponent {
 
 
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private notesService: NotesService) {
   }
   openModal(content: any){
     this.modalService.open(content);
@@ -21,17 +22,18 @@ export class TabBarComponent {
   onSubmit(title: string, body: string) {
     if(title != "" && body != ""){
       let tempNote: Note = {
-        noteID:Date.now(),
+        noteID:Date.now().toString(),
+        isChangeable:false,
         title:title,
         bodyText:body,
-        isChangeable:false
       }
-      localStorage.setItem( Date.now().toString(),JSON.stringify(tempNote));
+      this.notesService.addNote(tempNote).subscribe();
+      //localStorage.setItem( Date.now().toString(),JSON.stringify(tempNote));
     }
-    window.location.reload();
+    //window.location.reload();
   }
 
   deleteAll(){
-
+    this.notesService.deleteAll();
   }
 }

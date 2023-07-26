@@ -1,5 +1,5 @@
 export interface Note {
-  noteID: number;
+  noteID: string;
   isChangeable: boolean;
   title: string;
   bodyText: string;

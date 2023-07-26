@@ -16,20 +16,21 @@ export class NotesComponent implements OnInit{
   }
 
   toEnable(id: number){
-    console.log(this.notes[id]);
-      this.notes[id].isChangeable =true;
-    console.log("true")
+    this.notes[id].isChangeable =true;
   }
 
   toDisable(id: number) {
-    console.log(this.notes[id]);
     this.notes[id].isChangeable = false;
   }
 
   getNotes(){
+    this.notesService.getNotes().subscribe(notes => {
+      notes = this.notes
+    })
+    /*
     for (let i = 0; i < localStorage.length; i++) {
         this.notes.push(JSON.parse(localStorage.getItem(localStorage.key(i) || ' ' ) || ' '));
-    }
+    }*/
 
     this.notes.sort(function (a,b) {
       if (a.noteID < b.noteID)return -1;
@@ -39,9 +40,20 @@ export class NotesComponent implements OnInit{
  }
 
 
- deleteNote(id: number) {
-    this.notesService
-    localStorage.removeItem(id.toString());
+ deleteNote(id: string) {
+    this.notesService.deleteNote(id)
+    //localStorage.removeItem(id.toString());
+    window.location.reload();
+  }
+
+  updateNote(noteID: string,title: string, body: string){
+    let tempNote: Note = {
+      noteID: noteID,
+      title:title,
+      bodyText:body,
+      isChangeable:false
+    }
+    this.notesService.updateNote(tempNote);
     window.location.reload();
   }
 
