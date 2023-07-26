@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Note} from "./note";
 import {Observable} from "rxjs";
 
@@ -29,15 +29,15 @@ export class NotesService {
   }
 
   public updateNote(note: Note): Observable<Note[]>{
-
-    return this.http.put<Note[]>(`${this.ROOT_URL}//edit/{note.noteID}`,note)
+    return this.http.put<Note[]>(`${this.ROOT_URL}/edit/${note.id}`,note)
   }
 
-  public deleteNote(id: string): Observable<void>{
-    return this.http.delete<void>(`${this.ROOT_URL}/delete/{id}`)
+  public deleteNote(id: string): void{
+    console.log("burdayım")
+     this.http.delete<void>(`${this.ROOT_URL}/delete/${id}`).subscribe()
   }
 
   public deleteAll(): void{
-    this.http.delete<void>(`${this.ROOT_URL}/deleteAll`)
+    this.http.delete<void>(`${this.ROOT_URL}/deleteAll`).subscribe()
   }
 }

@@ -22,7 +22,7 @@ export class TabBarComponent {
   onSubmit(title: string, body: string) {
     if(title != "" && body != ""){
       let tempNote: Note = {
-        noteID:Date.now().toString(),
+        id:Date.now().toString(),
         isChangeable:false,
         title:title,
         bodyText:body,
@@ -31,7 +31,7 @@ export class TabBarComponent {
       this.notesService.addNote(tempNote).subscribe();
       //localStorage.setItem( Date.now().toString(),JSON.stringify(tempNote));
     }
-    //window.location.reload();
+    window.location.reload();
   }
 
   deleteAll(){

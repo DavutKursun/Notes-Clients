@@ -19,41 +19,33 @@ export class NotesComponent implements OnInit{
     this.notes[id].isChangeable =true;
   }
 
-  toDisable(id: number) {
-    this.notes[id].isChangeable = false;
-  }
 
   getNotes(){
     this.notesService.getNotes().subscribe(notes => {
-      notes = this.notes
+      this.notes = notes
     })
-    /*
-    for (let i = 0; i < localStorage.length; i++) {
-        this.notes.push(JSON.parse(localStorage.getItem(localStorage.key(i) || ' ' ) || ' '));
-    }*/
 
     this.notes.sort(function (a,b) {
-      if (a.noteID < b.noteID)return -1;
-      if(a.noteID> b.noteID)return 1;
+      if (a.id < b.id)return -1;
+      if(a.id> b.id)return 1;
        return 0;
     })
  }
 
 
  deleteNote(id: string) {
-    this.notesService.deleteNote(id)
-    //localStorage.removeItem(id.toString());
+    this.notesService.deleteNote(id);
     window.location.reload();
   }
 
   updateNote(noteID: string,title: string, body: string){
     let tempNote: Note = {
-      noteID: noteID,
+      id: noteID,
       title:title,
       bodyText:body,
       isChangeable:false
     }
-    this.notesService.updateNote(tempNote);
+    this.notesService.updateNote(tempNote).subscribe();
     window.location.reload();
   }
 
