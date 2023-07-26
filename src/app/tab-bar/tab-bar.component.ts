@@ -26,6 +26,7 @@ export class TabBarComponent {
         isChangeable:false,
         title:title,
         bodyText:body,
+
       }
       this.notesService.addNote(tempNote).subscribe();
       //localStorage.setItem( Date.now().toString(),JSON.stringify(tempNote));
