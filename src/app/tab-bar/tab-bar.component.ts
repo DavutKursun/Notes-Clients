@@ -36,4 +36,5 @@ export class TabBarComponent {
   deleteAll(){
     this.notesService.deleteAll();
   }
+
 }
