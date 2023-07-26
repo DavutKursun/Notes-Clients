@@ -17,7 +17,6 @@ export class TabBarComponent {
     this.modalService.open(content);
   }
 
-
   protected readonly onsubmit = onsubmit;
   onSubmit(title: string, body: string) {
     if(title != "" && body != ""){
@@ -29,13 +28,13 @@ export class TabBarComponent {
 
       }
       this.notesService.addNote(tempNote).subscribe();
-      //localStorage.setItem( Date.now().toString(),JSON.stringify(tempNote));
     }
     window.location.reload();
   }
 
   deleteAll(){
     this.notesService.deleteAll();
+    window.location.reload();
   }
 
 }

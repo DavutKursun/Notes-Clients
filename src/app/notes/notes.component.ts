@@ -32,7 +32,6 @@ export class NotesComponent implements OnInit{
     })
  }
 
-
  deleteNote(id: string) {
     this.notesService.deleteNote(id);
     window.location.reload();
