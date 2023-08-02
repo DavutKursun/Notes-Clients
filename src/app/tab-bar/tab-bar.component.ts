@@ -8,15 +8,11 @@ import {NotesService} from "../notes.service";
   styleUrls: ['./tab-bar.component.css']
 })
 export class TabBarComponent {
-
-
   constructor(private modalService: NgbModal, private notesService: NotesService) {
   }
   openModal(content: any){
     this.modalService.open(content);
   }
-
-  protected readonly onsubmit = onsubmit;
   onSubmit(title: string, body: string) {
     if(title != "" && body != ""){
       let tempNote: Note = {
@@ -24,16 +20,13 @@ export class TabBarComponent {
         isChangeable:false,
         title:title,
         bodyText:body,
-
       }
       this.notesService.addNote(tempNote).subscribe();
     }
     window.location.reload();
   }
-
   deleteAll(){
     this.notesService.deleteAll();
     window.location.reload();
   }
-
 }

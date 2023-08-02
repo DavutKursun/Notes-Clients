@@ -4,8 +4,10 @@
 .card-margin{
   margin: 30px;
 }
+.cardStyle{
+   width : 18rem;
+}
 li{
   list-style: none;
   display: inline-block;
 }
-

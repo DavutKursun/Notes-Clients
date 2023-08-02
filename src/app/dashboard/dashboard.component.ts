@@ -6,11 +6,7 @@ import {Note} from "../note";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
-
   notes: Note[] = [];
   ngOnInit(): void {
   }
-
-
-
 }

@@ -7,19 +7,20 @@ import {NotesService} from "../notes.service";
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit{
-
   notes: Note[] =[];
   constructor(private notesService: NotesService) {
   }
   ngOnInit(): void {
     this.getNotes();
   }
+  toEnable(id: string){
 
-  toEnable(id: number){
-    this.notes[id].isChangeable =true;
+    for (let i = 0; i < this.notes.length; i++) {
+      if (this.notes[i].id == id){
+        this.notes[i].isChangeable = true;
+      }
+    }
   }
-
-
   getNotes(){
     this.notesService.getNotes().subscribe(notes => {
       this.notes = notes
@@ -31,12 +32,10 @@ export class NotesComponent implements OnInit{
        return 0;
     })
  }
-
  deleteNote(id: string) {
     this.notesService.deleteNote(id);
     window.location.reload();
   }
-
   updateNote(noteID: string,title: string, body: string){
     let tempNote: Note = {
       id: noteID,
@@ -47,5 +46,4 @@ export class NotesComponent implements OnInit{
     this.notesService.updateNote(tempNote).subscribe();
     window.location.reload();
   }
-
 }

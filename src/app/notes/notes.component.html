@@ -1,8 +1,7 @@
-
 <ul>
-  <li  *ngFor="let note of notes ; index as i" >
-      <div *ngIf="note.isChangeable === undefined || !note.isChangeable "  (click)= "toEnable(i)" >
-        <div class="card m-4"  style="width: 18rem;">
+  <li  *ngFor="let note of notes " >
+      <div *ngIf="note.isChangeable === undefined || !note.isChangeable "  (click)= "toEnable(note.id)" >
+        <div class="card m-4 , cardStyle" >
           <div class="card-body" >
             <h5 class="card-title">{{note.title}}</h5>
             <p class="card-text">{{note.bodyText}} </p>
@@ -28,11 +27,3 @@
       </div>
   </li>
 </ul>
-
-
-
-
-
-
-
-
