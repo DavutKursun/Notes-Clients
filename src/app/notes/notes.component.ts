@@ -8,16 +8,15 @@ import {NotesService} from "../notes.service";
 })
 export class NotesComponent implements OnInit{
   @Input() note: Note = {id: "", title: "", bodyText: "", changeable:false};
-  noteOut: Note = {id: "", title: "", bodyText: "", changeable:false};
   @Output() setNoteEvent = new EventEmitter<Note>();
   constructor(private notesService: NotesService ) {
   }
   ngOnInit(): void {
   }
-  toEnable(id: string){
+  toEnable(){
     this.note.changeable = true;
   }
- deleteNote(id: string) {
+ deleteNote() {
     this.setNoteEvent.emit(this.note);
   }
   updateNote(noteTemp: Note){

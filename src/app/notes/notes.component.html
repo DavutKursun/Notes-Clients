@@ -1,4 +1,4 @@
- <div *ngIf="note.changeable === undefined || !note.changeable " (click)= "toEnable(note.id)" >
+ <div *ngIf="note.changeable === undefined || !note.changeable " (click)= "toEnable()" >
         <div class="card m-4 , cardStyle" >
           <div class="card-body" >
             <h5 class="card-title">{{note.title}}</h5>
@@ -18,7 +18,7 @@
             </div>
             <p></p>
             <div class="d-grid gap-2">
-              <button class="btn btn-danger" type="button" (click)="deleteNote(note.id)">DELETE</button>
+              <button class="btn btn-danger" type="button" (click)="deleteNote()">DELETE</button>
             </div>
           </div>
         </div>
