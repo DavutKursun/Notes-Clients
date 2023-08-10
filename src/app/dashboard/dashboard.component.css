@@ -9,3 +9,14 @@
   width: 25%;
   padding: 0 10px;
 }
+@media screen and (max-width: 992px) {
+  .column {
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
