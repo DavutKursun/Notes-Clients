@@ -17,7 +17,7 @@ export class TabBarComponent {
     if(title != "" && body != ""){
       let tempNote: Note = {
         id:Date.now().toString(),
-        isChangeable:false,
+        changeable:false,
         title:title,
         bodyText:body,
       }

@@ -1,6 +1,6 @@
 export interface Note {
   id: string;
-  isChangeable: boolean;
+  changeable: boolean;
   title: string;
   bodyText: string;
 }

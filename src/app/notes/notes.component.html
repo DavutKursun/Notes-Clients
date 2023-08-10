@@ -1,6 +1,4 @@
-<ul>
-  <li  *ngFor="let note of notes " >
-      <div *ngIf="note.isChangeable === undefined || !note.isChangeable "  (click)= "toEnable(note.id)" >
+ <div *ngIf="note.changeable === undefined || !note.changeable " (click)= "toEnable(note.id)" >
         <div class="card m-4 , cardStyle" >
           <div class="card-body" >
             <h5 class="card-title">{{note.title}}</h5>
@@ -8,7 +6,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="note.isChangeable">
+      <div *ngIf="note.changeable">
         <div class="card m-4"  style="width: 18rem;" >
           <div class="card-body" >
             <input type="text" class="form-control" [(ngModel)]="note.title"  aria-describedby="basic-addon2">
@@ -25,5 +23,3 @@
           </div>
         </div>
       </div>
-  </li>
-</ul>

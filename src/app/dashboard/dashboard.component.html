@@ -1,5 +1,7 @@
 <div class="main-conteiner" >
-  <div >
-        <app-notes ></app-notes>
-  </div>
+    <div class="row"  >
+      <div class="column" *ngFor= "let tempnote of notes " >
+        <app-notes [note]="tempnote" (setNoteEvent)="deleteNote($event.id)"></app-notes>
+      </div>
+    </div>
 </div>
