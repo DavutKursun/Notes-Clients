@@ -20,14 +20,8 @@ export class NotesComponent implements OnInit{
  deleteNote(id: string) {
     this.setNoteEvent.emit(this.note);
   }
-  updateNote(noteID: string,title: string, body: string){
-    let tempNote: Note = {
-      id: noteID,
-      title:title,
-      bodyText:body,
-      changeable:false
-    }
+  updateNote(noteTemp: Note){
     this.note.changeable=false;
-    this.notesService.updateNote(tempNote).subscribe();
+    this.notesService.updateNote(noteTemp).subscribe();
   }
 }
