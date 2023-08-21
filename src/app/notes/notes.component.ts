@@ -7,7 +7,7 @@ import {NotesService} from "../notes.service";
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit{
-  @Input() note: Note = {id: "", title: "", bodyText: "", changeable:false};
+  @Input() note: Note = {id: "", userId: "" , title: "", bodyText: "", changeable:false};
   @Output() setNoteEvent = new EventEmitter<Note>();
   constructor(private notesService: NotesService ) {
   }

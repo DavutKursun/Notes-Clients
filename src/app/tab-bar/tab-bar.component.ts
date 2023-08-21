@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Note} from "../note";
 import {NotesService} from "../notes.service";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-tab-bar',
   templateUrl: './tab-bar.component.html',
   styleUrls: ['./tab-bar.component.css']
 })
 export class TabBarComponent {
-  constructor(private modalService: NgbModal, private notesService: NotesService) {
+  constructor(private modalService: NgbModal, private notesService: NotesService, private router: Router) {
   }
   openModal(content: any){
     this.modalService.open(content);
@@ -17,6 +18,7 @@ export class TabBarComponent {
     if(title != "" && body != ""){
       let tempNote: Note = {
         id:Date.now().toString(),
+        userId: localStorage.getItem('currentUser') || " ",
         changeable:false,
         title:title,
         bodyText:body,
@@ -28,5 +30,11 @@ export class TabBarComponent {
   deleteAll(){
     this.notesService.deleteAll();
     window.location.reload();
+  }
+
+  logout(){
+    this.notesService.logout().then((res: any) => {
+      this.router.navigateByUrl("");
+    });
   }
 }

@@ -8,6 +8,7 @@ import {NotesService} from "../notes.service";
 })
 export class DashboardComponent implements OnInit{
 
+  username: string = localStorage.getItem('currentUser') || " ";
   notes: Note[] =[];
   constructor(private notesService: NotesService) {
   }
@@ -15,13 +16,13 @@ export class DashboardComponent implements OnInit{
     this.getNotes();
   }
   public getNotes(){
-    this.notesService.getNotes().subscribe(notes => {
+    this.notesService.getUsersAllNotes(this.username).subscribe(notes => {
       this.notes = notes
     });
   }
   deleteNote(id: string) {
     this.notesService.deleteNote(id);
-    this.notesService.getNotes().subscribe();
+    this.notesService.getUsersAllNotes(this.username).subscribe();
     this.getNotes();
   }
 }

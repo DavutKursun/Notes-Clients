@@ -7,8 +7,12 @@ import { NotesComponent } from './notes/notes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule, provideHttpClient} from "@angular/common/http";
+import {HttpClientModule } from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {AngularFireModule} from "@angular/fire/compat";
+import {firebaseConfig} from "./environment";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,18 @@ import {FormsModule} from "@angular/forms";
     NotesComponent,
     DashboardComponent,
     TabBarComponent,
+    LoginPageComponent,
+
   ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        HttpClientModule,
-        FormsModule
+      BrowserModule,
+      AppRoutingModule,
+      NgbModule,
+      HttpClientModule,
+      FormsModule,
+      AngularFireModule.initializeApp(firebaseConfig),
+      AngularFireAuthModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]
