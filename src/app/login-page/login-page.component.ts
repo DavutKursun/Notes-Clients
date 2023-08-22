@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NotesService} from "../notes.service";
+import {NotesService} from "../services/notes.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -26,13 +26,6 @@ export class LoginPageComponent {
     this.userService.loginWithEmailAndPassword({email,password}).then((res: any) => {
       this.router.navigateByUrl("home");
     });
-  }
-  changeToTrueRegis(){
-    this.isRegistered = true;
-  }
-
-  changeToFalseRegis(){
-    this.isRegistered = false;
   }
 
 }

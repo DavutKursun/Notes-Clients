@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Note} from "../note";
-import {NotesService} from "../notes.service";
+import {NotesService} from "../services/notes.service";
 import {Router} from "@angular/router";
 @Component({
   selector: 'app-tab-bar',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {Note} from "./note";
+import {Note} from "../note";
 import {Observable} from "rxjs";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuth} from "@angular/fire/compat/auth";

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Note} from "../note";
-import {NotesService} from "../notes.service";
+import {NotesService} from "../services/notes.service";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

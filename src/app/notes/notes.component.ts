@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Note} from "../note";
-import {NotesService} from "../notes.service";
+import {NotesService} from "../services/notes.service";
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
