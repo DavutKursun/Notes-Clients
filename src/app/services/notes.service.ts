@@ -4,13 +4,14 @@ import {Note} from "../note";
 import {Observable} from "rxjs";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {LocalService} from "./local.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
   private ROOT_URL = "http://localhost:8080/api/note";
-  constructor(private http: HttpClient, private afs: AngularFireAuth) { }
+  constructor(private http: HttpClient, private afs: AngularFireAuth, private localService: LocalService) { }
   public getUsersAllNotes(userId: string): Observable<Note[]>{
     console.log("burdayım")
     return this.http.get<Note[]>(`${this.ROOT_URL}/getAllNotesById/${userId}`)
@@ -34,21 +35,23 @@ export class NotesService {
   }
 
   public loginWithEmailAndPassword(user: {email: string, password: string}){
-    localStorage.setItem('currentUser', user.email)
-    return this.afs.signInWithEmailAndPassword(user.email,user.password);
+
+    return this.afs.signInWithEmailAndPassword(user.email,user.password).catch();
 
   }
 
   public registerWithEmailAndPassword(user: {email: string, password: string}){
-    localStorage.setItem('currentUser', user.email)
     return this.afs.createUserWithEmailAndPassword(user.email,user.password);
 
   }
 
   public logout(){
-    localStorage.removeItem('currentUser')
+    this.localService.removeCurrentUser()
     return this.afs.signOut();
 
+  }
+  public deleteUsersAllNote(userId: string){
+    this.http.delete<void>(`${this.ROOT_URL}/deleteUsersAllNote/${userId}`).subscribe()
   }
 
 }

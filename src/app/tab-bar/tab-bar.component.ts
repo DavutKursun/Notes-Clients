@@ -9,11 +9,15 @@ import {Router} from "@angular/router";
   styleUrls: ['./tab-bar.component.css']
 })
 export class TabBarComponent {
+  username: string = localStorage.getItem('currentUser') || " ";
+
   constructor(private modalService: NgbModal, private notesService: NotesService, private router: Router) {
   }
+
   openModal(content: any){
     this.modalService.open(content);
   }
+
   onSubmit(title: string, body: string) {
     if(title != "" && body != ""){
       let tempNote: Note = {
@@ -27,9 +31,9 @@ export class TabBarComponent {
     }
     window.location.reload();
   }
-  deleteAll(){
-    this.notesService.deleteAll();
-    window.location.reload();
+
+  deleteAll() {
+    this.notesService.deleteUsersAllNote(this.username);
   }
 
   logout(){

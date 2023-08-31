@@ -1,14 +1,18 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
-  <li ngbNavItem class="tabBarDisplay md-3">
-      <img class="imageMargin " src="../../assets/englishcentrallogo.webp" width="50" height="50" >
-      <span class="m-3 ">EnglishCentralNotes</span>
-      <button type="button" class="btn btn-primary m-4 " (click)="openModal(content)">ADD</button>
-      <span class="m-3 "></span>
-      <button type="button" class="btn btn-primary m-4 " (click)="deleteAll()">DELETE ALL</button>
-      <span class="m-3 "></span>
-      <button type="button" class="btn btn-primary m-4 " (click)="logout()">Logout</button>
-  </li>
-</ul>
+<div class = "tab-bar-display">
+  <div>
+    <img class="imageMargin " src="../../assets/englishcentrallogo.webp" width="50" height="50" >
+    <span class="m-3 ">EnglishCentralNotes</span>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary m-4 " (click)="openModal(content)">ADD</button>
+    <span class="m-3 "></span>
+    <button type="button" class="btn btn-primary m-4 " (click)="deleteAll()">DELETE ALL</button>
+    <span class="m-3 "></span>
+    <button type="button" class="btn btn-primary m-4 " (click)="logout()">Logout</button>
+  </div>
+</div>
+
+
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <input type="text" #title (input)="title" class="form-control"   aria-describedby="basic-addon2" >

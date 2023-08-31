@@ -13,6 +13,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {firebaseConfig} from "./environment";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import { LoginPageComponent } from './login-page/login-page.component';
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,6 @@ import { LoginPageComponent } from './login-page/login-page.component';
     DashboardComponent,
     TabBarComponent,
     LoginPageComponent,
-
   ],
     imports: [
       BrowserModule,
@@ -33,7 +33,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
       AngularFireAuthModule,
 
     ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
